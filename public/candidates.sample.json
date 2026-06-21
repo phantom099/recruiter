@@ -1,0 +1,277 @@
+{
+  "meta": {
+    "generated_for": "frontend-test-task",
+    "note": "Синтетические обезличенные данные. Совпадения с реальными людьми случайны. Имена и контакты — выдуманные, специально для тестового задания.",
+    "score_scale": "relevance_score: 0.0..1.0, выше = релевантнее",
+    "coverage_statuses": ["found", "indirect", "not_found"]
+  },
+  "vacancy": {
+    "id": "vac-001",
+    "title": "Senior Backend-разработчик (Python)",
+    "company": "Пример-Завод",
+    "description": "Разработка и поддержка backend-сервисов поисковой платформы: REST API, работа с PostgreSQL и векторным поиском, контейнеризация и эксплуатация в Kubernetes.",
+    "required_skills": [
+      { "id": "py",        "name": "Python",            "importance": "required" },
+      { "id": "postgres",  "name": "PostgreSQL",        "importance": "required" },
+      { "id": "rest",      "name": "REST API / FastAPI","importance": "required" },
+      { "id": "docker",    "name": "Docker",            "importance": "required" },
+      { "id": "k8s",       "name": "Kubernetes",        "importance": "nice_to_have" },
+      { "id": "cicd",      "name": "CI/CD",             "importance": "nice_to_have" },
+      { "id": "vector",    "name": "Векторный поиск (Qdrant/FAISS)", "importance": "nice_to_have" }
+    ]
+  },
+  "candidates": [
+    {
+      "id": "cand-001",
+      "display_name": "Кандидат А-001",
+      "source": "hh_api",
+      "relevance_score": 0.91,
+      "experience_years": 8,
+      "current_title": "Ведущий backend-разработчик",
+      "location": "Москва",
+      "contact_available": true,
+      "summary": "8 лет на Python, последние 3 года — поисковые сервисы с векторным поиском и высокой нагрузкой.",
+      "explanation": "Полностью закрывает все обязательные навыки. Есть прямой опыт векторного поиска и эксплуатации в Kubernetes, что встречается редко.",
+      "skills_coverage": [
+        { "skill_id": "py",       "skill_name": "Python",      "status": "found",     "evidence": ["8 лет коммерческой разработки на Python", "Проектировал асинхронные сервисы на asyncio"] },
+        { "skill_id": "postgres", "skill_name": "PostgreSQL",  "status": "found",     "evidence": ["Проектирование схем и оптимизация запросов в PostgreSQL", "Партиционирование таблиц на 200M+ строк"] },
+        { "skill_id": "rest",     "skill_name": "REST API / FastAPI", "status": "found", "evidence": ["Разрабатывал публичное API на FastAPI", "OpenAPI-контракты, версионирование"] },
+        { "skill_id": "docker",   "skill_name": "Docker",      "status": "found",     "evidence": ["Сборка и оптимизация multi-stage образов"] },
+        { "skill_id": "k8s",      "skill_name": "Kubernetes",  "status": "found",     "evidence": ["Эксплуатация сервисов в k8s, Helm-чарты"] },
+        { "skill_id": "cicd",     "skill_name": "CI/CD",       "status": "found",     "evidence": ["GitLab CI пайплайны с автотестами и деплоем"] },
+        { "skill_id": "vector",   "skill_name": "Векторный поиск (Qdrant/FAISS)", "status": "found", "evidence": ["Внедрял Qdrant для семантического поиска", "Гибридный поиск BM25 + эмбеддинги"] }
+      ]
+    },
+    {
+      "id": "cand-002",
+      "display_name": "Кандидат А-002",
+      "source": "p_local",
+      "relevance_score": 0.84,
+      "experience_years": 6,
+      "current_title": "Backend-разработчик",
+      "location": "Санкт-Петербург",
+      "contact_available": false,
+      "summary": "Сильный Python и PostgreSQL, векторного поиска нет, но есть смежный опыт по Elasticsearch.",
+      "explanation": "Закрывает все обязательные навыки. Векторный поиск напрямую не подтверждён, но есть косвенный сигнал — опыт полнотекстового поиска.",
+      "skills_coverage": [
+        { "skill_id": "py",       "skill_name": "Python",      "status": "found",     "evidence": ["6 лет на Python, Django и FastAPI"] },
+        { "skill_id": "postgres", "skill_name": "PostgreSQL",  "status": "found",     "evidence": ["Ежедневная работа с PostgreSQL, оконные функции, индексы"] },
+        { "skill_id": "rest",     "skill_name": "REST API / FastAPI", "status": "found", "evidence": ["Десятки REST-эндпойнтов на FastAPI"] },
+        { "skill_id": "docker",   "skill_name": "Docker",      "status": "found",     "evidence": ["docker-compose для локальной разработки и стейджа"] },
+        { "skill_id": "k8s",      "skill_name": "Kubernetes",  "status": "indirect",  "evidence": ["Деплой описан как 'в облаке', конкретика по k8s отсутствует"] },
+        { "skill_id": "cicd",     "skill_name": "CI/CD",       "status": "found",     "evidence": ["Настраивал GitHub Actions"] },
+        { "skill_id": "vector",   "skill_name": "Векторный поиск (Qdrant/FAISS)", "status": "indirect", "evidence": ["Опыт с Elasticsearch (полнотекстовый, не векторный)"] }
+      ]
+    },
+    {
+      "id": "cand-003",
+      "display_name": "Кандидат А-003",
+      "source": "hh_api",
+      "relevance_score": 0.78,
+      "experience_years": 5,
+      "current_title": "Python-разработчик",
+      "location": "Казань",
+      "contact_available": true,
+      "summary": "Уверенный Python-разработчик уровня middle+, инфраструктурные навыки слабее.",
+      "explanation": "Обязательные навыки закрыты, но Docker подтверждён лишь косвенно, а Kubernetes и векторного поиска нет.",
+      "skills_coverage": [
+        { "skill_id": "py",       "skill_name": "Python",      "status": "found",     "evidence": ["5 лет на Python, бэкенд маркетплейса"] },
+        { "skill_id": "postgres", "skill_name": "PostgreSQL",  "status": "found",     "evidence": ["PostgreSQL как основная БД проекта"] },
+        { "skill_id": "rest",     "skill_name": "REST API / FastAPI", "status": "found", "evidence": ["REST API на Flask и FastAPI"] },
+        { "skill_id": "docker",   "skill_name": "Docker",      "status": "indirect",  "evidence": ["Упоминает 'работу с контейнерами' без деталей"] },
+        { "skill_id": "k8s",      "skill_name": "Kubernetes",  "status": "not_found", "evidence": [] },
+        { "skill_id": "cicd",     "skill_name": "CI/CD",       "status": "indirect",  "evidence": ["Тесты запускались автоматически, инструмент не назван"] },
+        { "skill_id": "vector",   "skill_name": "Векторный поиск (Qdrant/FAISS)", "status": "not_found", "evidence": [] }
+      ]
+    },
+    {
+      "id": "cand-004",
+      "display_name": "Кандидат А-004",
+      "source": "p_local",
+      "relevance_score": 0.73,
+      "experience_years": 9,
+      "current_title": "Системный архитектор",
+      "location": "Москва",
+      "contact_available": true,
+      "summary": "Опытный архитектор с сильной инфраструктурой, но кодинг на Python в последние годы меньше.",
+      "explanation": "Очень силён по инфраструктуре (k8s, CI/CD), но прикладной Python и FastAPI подтверждены слабее — больше управление, чем разработка.",
+      "skills_coverage": [
+        { "skill_id": "py",       "skill_name": "Python",      "status": "indirect",  "evidence": ["Указан Python в стеке, но последние роли — архитектурные"] },
+        { "skill_id": "postgres", "skill_name": "PostgreSQL",  "status": "found",     "evidence": ["Проектировал хранилища на PostgreSQL для нескольких продуктов"] },
+        { "skill_id": "rest",     "skill_name": "REST API / FastAPI", "status": "indirect", "evidence": ["Проектировал API-контракты, но реализацию делала команда"] },
+        { "skill_id": "docker",   "skill_name": "Docker",      "status": "found",     "evidence": ["Стандартизировал контейнеризацию в компании"] },
+        { "skill_id": "k8s",      "skill_name": "Kubernetes",  "status": "found",     "evidence": ["Внедрял Kubernetes-кластеры, отвечал за прод"] },
+        { "skill_id": "cicd",     "skill_name": "CI/CD",       "status": "found",     "evidence": ["Построил CI/CD с нуля в двух компаниях"] },
+        { "skill_id": "vector",   "skill_name": "Векторный поиск (Qdrant/FAISS)", "status": "not_found", "evidence": [] }
+      ]
+    },
+    {
+      "id": "cand-005",
+      "display_name": "Кандидат А-005",
+      "source": "hh_api",
+      "relevance_score": 0.69,
+      "experience_years": 4,
+      "current_title": "Backend-разработчик (Python)",
+      "location": "Новосибирск",
+      "contact_available": false,
+      "summary": "Middle-разработчик, профильный стек закрыт, но опыта меньше требуемого.",
+      "explanation": "Обязательные навыки в целом закрыты, опыт по нижней границе. Дополнительные навыки в основном отсутствуют.",
+      "skills_coverage": [
+        { "skill_id": "py",       "skill_name": "Python",      "status": "found",     "evidence": ["4 года на Python, основной язык"] },
+        { "skill_id": "postgres", "skill_name": "PostgreSQL",  "status": "found",     "evidence": ["PostgreSQL в текущем проекте"] },
+        { "skill_id": "rest",     "skill_name": "REST API / FastAPI", "status": "found", "evidence": ["FastAPI — основной фреймворк"] },
+        { "skill_id": "docker",   "skill_name": "Docker",      "status": "found",     "evidence": ["Контейнеризировал сервисы для деплоя"] },
+        { "skill_id": "k8s",      "skill_name": "Kubernetes",  "status": "not_found", "evidence": [] },
+        { "skill_id": "cicd",     "skill_name": "CI/CD",       "status": "not_found", "evidence": [] },
+        { "skill_id": "vector",   "skill_name": "Векторный поиск (Qdrant/FAISS)", "status": "not_found", "evidence": [] }
+      ]
+    },
+    {
+      "id": "cand-006",
+      "display_name": "Кандидат А-006",
+      "source": "p_local",
+      "relevance_score": 0.61,
+      "experience_years": 7,
+      "current_title": "Data Engineer",
+      "location": "Москва",
+      "contact_available": true,
+      "summary": "Дата-инженер с сильным Python и векторным поиском, но web-API не его профиль.",
+      "explanation": "Интересный профиль: есть редкий навык векторного поиска, но REST API и продуктовая разработка подтверждены слабо.",
+      "skills_coverage": [
+        { "skill_id": "py",       "skill_name": "Python",      "status": "found",     "evidence": ["7 лет Python в дата-инженерии"] },
+        { "skill_id": "postgres", "skill_name": "PostgreSQL",  "status": "found",     "evidence": ["ETL-пайплайны с PostgreSQL-источниками"] },
+        { "skill_id": "rest",     "skill_name": "REST API / FastAPI", "status": "indirect", "evidence": ["Писал внутренние сервисные эндпойнты, без продуктового API"] },
+        { "skill_id": "docker",   "skill_name": "Docker",      "status": "found",     "evidence": ["Контейнеризация Airflow-задач"] },
+        { "skill_id": "k8s",      "skill_name": "Kubernetes",  "status": "indirect",  "evidence": ["Запускал задачи в k8s через оператор, не администрировал"] },
+        { "skill_id": "cicd",     "skill_name": "CI/CD",       "status": "found",     "evidence": ["CI для дата-пайплайнов"] },
+        { "skill_id": "vector",   "skill_name": "Векторный поиск (Qdrant/FAISS)", "status": "found", "evidence": ["Строил FAISS-индексы для рекомендаций", "Эксперименты с Qdrant"] }
+      ]
+    },
+    {
+      "id": "cand-007",
+      "display_name": "Кандидат А-007",
+      "source": "hh_api",
+      "relevance_score": 0.55,
+      "experience_years": 3,
+      "current_title": "Junior+ Python-разработчик",
+      "location": "Екатеринбург",
+      "contact_available": false,
+      "summary": "Начинающий разработчик, базовые навыки есть, инфраструктуры и поиска нет.",
+      "explanation": "Закрывает часть обязательных навыков на базовом уровне. По опыту ниже планки вакансии.",
+      "skills_coverage": [
+        { "skill_id": "py",       "skill_name": "Python",      "status": "found",     "evidence": ["3 года на Python"] },
+        { "skill_id": "postgres", "skill_name": "PostgreSQL",  "status": "indirect",  "evidence": ["Работал с БД через ORM, прямого SQL мало"] },
+        { "skill_id": "rest",     "skill_name": "REST API / FastAPI", "status": "found", "evidence": ["Делал CRUD-API на FastAPI"] },
+        { "skill_id": "docker",   "skill_name": "Docker",      "status": "indirect",  "evidence": ["Запускал готовые контейнеры, сам образы не собирал"] },
+        { "skill_id": "k8s",      "skill_name": "Kubernetes",  "status": "not_found", "evidence": [] },
+        { "skill_id": "cicd",     "skill_name": "CI/CD",       "status": "not_found", "evidence": [] },
+        { "skill_id": "vector",   "skill_name": "Векторный поиск (Qdrant/FAISS)", "status": "not_found", "evidence": [] }
+      ]
+    },
+    {
+      "id": "cand-008",
+      "display_name": "Кандидат А-008",
+      "source": "p_local",
+      "relevance_score": 0.48,
+      "experience_years": 10,
+      "current_title": "Java-разработчик",
+      "location": "Москва",
+      "contact_available": true,
+      "summary": "Сильный инженер, но основной стек — Java, Python только как вторичный.",
+      "explanation": "Профиль смежный: глубокий backend-опыт, но ключевой Python-стек подтверждён лишь косвенно. Стоит рассматривать как 'условно подходит'.",
+      "skills_coverage": [
+        { "skill_id": "py",       "skill_name": "Python",      "status": "indirect",  "evidence": ["Python указан как дополнительный язык, основной — Java"] },
+        { "skill_id": "postgres", "skill_name": "PostgreSQL",  "status": "found",     "evidence": ["10 лет с реляционными БД, включая PostgreSQL"] },
+        { "skill_id": "rest",     "skill_name": "REST API / FastAPI", "status": "indirect", "evidence": ["Богатый опыт REST, но на Spring, не FastAPI"] },
+        { "skill_id": "docker",   "skill_name": "Docker",      "status": "found",     "evidence": ["Многолетняя контейнеризация сервисов"] },
+        { "skill_id": "k8s",      "skill_name": "Kubernetes",  "status": "found",     "evidence": ["Прод в Kubernetes"] },
+        { "skill_id": "cicd",     "skill_name": "CI/CD",       "status": "found",     "evidence": ["Jenkins, GitLab CI"] },
+        { "skill_id": "vector",   "skill_name": "Векторный поиск (Qdrant/FAISS)", "status": "not_found", "evidence": [] }
+      ]
+    },
+    {
+      "id": "cand-009",
+      "display_name": "Кандидат А-009",
+      "source": "hh_api",
+      "relevance_score": 0.42,
+      "experience_years": 5,
+      "current_title": "QA Automation Engineer",
+      "location": "Минск",
+      "contact_available": false,
+      "summary": "Автоматизатор тестирования на Python, продуктовой разработки backend мало.",
+      "explanation": "Python есть, но в контексте автотестов. Под backend-разработку подходит слабо — много пробелов по обязательным навыкам.",
+      "skills_coverage": [
+        { "skill_id": "py",       "skill_name": "Python",      "status": "found",     "evidence": ["5 лет Python для автотестов (pytest)"] },
+        { "skill_id": "postgres", "skill_name": "PostgreSQL",  "status": "indirect",  "evidence": ["Проверял данные в PostgreSQL в рамках тестов"] },
+        { "skill_id": "rest",     "skill_name": "REST API / FastAPI", "status": "indirect", "evidence": ["Тестировал REST API, но не разрабатывал"] },
+        { "skill_id": "docker",   "skill_name": "Docker",      "status": "found",     "evidence": ["Поднимал тестовые окружения в Docker"] },
+        { "skill_id": "k8s",      "skill_name": "Kubernetes",  "status": "not_found", "evidence": [] },
+        { "skill_id": "cicd",     "skill_name": "CI/CD",       "status": "found",     "evidence": ["Интеграция автотестов в CI"] },
+        { "skill_id": "vector",   "skill_name": "Векторный поиск (Qdrant/FAISS)", "status": "not_found", "evidence": [] }
+      ]
+    },
+    {
+      "id": "cand-010",
+      "display_name": "Кандидат А-010",
+      "source": "p_local",
+      "relevance_score": 0.31,
+      "experience_years": 2,
+      "current_title": "Frontend-разработчик",
+      "location": "Москва",
+      "contact_available": true,
+      "summary": "Фронтенд-разработчик, почти весь обязательный backend-стек отсутствует.",
+      "explanation": "Профиль не соответствует вакансии: большинство обязательных навыков не подтверждены. Показан для проверки нижней границы списка.",
+      "skills_coverage": [
+        { "skill_id": "py",       "skill_name": "Python",      "status": "not_found", "evidence": [] },
+        { "skill_id": "postgres", "skill_name": "PostgreSQL",  "status": "not_found", "evidence": [] },
+        { "skill_id": "rest",     "skill_name": "REST API / FastAPI", "status": "indirect", "evidence": ["Потреблял REST API со стороны фронтенда"] },
+        { "skill_id": "docker",   "skill_name": "Docker",      "status": "indirect",  "evidence": ["Запускал проект в docker-compose локально"] },
+        { "skill_id": "k8s",      "skill_name": "Kubernetes",  "status": "not_found", "evidence": [] },
+        { "skill_id": "cicd",     "skill_name": "CI/CD",       "status": "indirect",  "evidence": ["Деплой фронтенда через CI"] },
+        { "skill_id": "vector",   "skill_name": "Векторный поиск (Qdrant/FAISS)", "status": "not_found", "evidence": [] }
+      ]
+    },
+    {
+      "id": "cand-011",
+      "display_name": "Кандидат А-011",
+      "source": "hh_api",
+      "relevance_score": 0.66,
+      "experience_years": 6,
+      "current_title": "Backend-разработчик (Python)",
+      "location": "Москва",
+      "contact_available": true,
+      "summary": "Крепкий middle+ с полным обязательным стеком, дополнительные навыки частично.",
+      "explanation": "Надёжный кандидат: все обязательные навыки закрыты прямо. Из дополнительных есть CI/CD, но нет Kubernetes и векторного поиска.",
+      "skills_coverage": [
+        { "skill_id": "py",       "skill_name": "Python",      "status": "found",     "evidence": ["6 лет на Python, основной язык во всех ролях"] },
+        { "skill_id": "postgres", "skill_name": "PostgreSQL",  "status": "found",     "evidence": ["PostgreSQL, в т.ч. оптимизация медленных запросов"] },
+        { "skill_id": "rest",     "skill_name": "REST API / FastAPI", "status": "found", "evidence": ["Боевой опыт FastAPI, фоновые задачи на Celery"] },
+        { "skill_id": "docker",   "skill_name": "Docker",      "status": "found",     "evidence": ["Самостоятельно собирал и оптимизировал образы"] },
+        { "skill_id": "k8s",      "skill_name": "Kubernetes",  "status": "not_found", "evidence": [] },
+        { "skill_id": "cicd",     "skill_name": "CI/CD",       "status": "found",     "evidence": ["GitLab CI с автодеплоем на стейдж"] },
+        { "skill_id": "vector",   "skill_name": "Векторный поиск (Qdrant/FAISS)", "status": "not_found", "evidence": [] }
+      ]
+    },
+    {
+      "id": "cand-012",
+      "display_name": "Кандидат А-012",
+      "source": "p_local",
+      "relevance_score": 0.58,
+      "experience_years": 5,
+      "current_title": "ML-инженер",
+      "location": "Санкт-Петербург",
+      "contact_available": false,
+      "summary": "ML-инженер с прямым опытом векторного поиска, но классический backend слабее.",
+      "explanation": "Ценен редким навыком векторного поиска и Python, но обязательные PostgreSQL и REST API подтверждены косвенно.",
+      "skills_coverage": [
+        { "skill_id": "py",       "skill_name": "Python",      "status": "found",     "evidence": ["5 лет Python в ML"] },
+        { "skill_id": "postgres", "skill_name": "PostgreSQL",  "status": "indirect",  "evidence": ["Читал данные из PostgreSQL, схемы не проектировал"] },
+        { "skill_id": "rest",     "skill_name": "REST API / FastAPI", "status": "indirect", "evidence": ["Оборачивал модели в FastAPI-инференс, продуктового API мало"] },
+        { "skill_id": "docker",   "skill_name": "Docker",      "status": "found",     "evidence": ["Контейнеризация ML-сервисов"] },
+        { "skill_id": "k8s",      "skill_name": "Kubernetes",  "status": "indirect",  "evidence": ["Деплой моделей в k8s через готовый шаблон"] },
+        { "skill_id": "cicd",     "skill_name": "CI/CD",       "status": "indirect",  "evidence": ["Использовал готовый CI, сам не настраивал"] },
+        { "skill_id": "vector",   "skill_name": "Векторный поиск (Qdrant/FAISS)", "status": "found", "evidence": ["Production-опыт Qdrant", "Гибридный retrieval, переранжирование"] }
+      ]
+    }
+  ]
+}
