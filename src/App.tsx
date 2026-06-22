@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { loadCandidates } from './services/loadCandidates';
 import type { Candidate } from './types/candidate';
+import CandidateCard from './components/CandidateCard';
 
 function App() {
   const [candidates, setCandidates] = useState<Candidate[]>([]);
@@ -33,12 +34,7 @@ function App() {
       <h1>Кандидаты</h1>
 
       {candidates.map(candidate => (
-        <div key={candidate.id}>
-          <h2>{candidate.diplay_name}</h2>
-          <p>{candidate.current_title}</p>
-          <p> Опыт: {''} {candidate.experience_years} {''} лет</p>
-          <p>Score: {candidate.relevance_score}</p>
-        </div>
+        <CandidateCard key={candidate.id} candidate={candidate}/>
       ))}
     </div>
   )
