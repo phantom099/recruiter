@@ -1,4 +1,4 @@
-export type SkillStatus = 'found' | 'indirect' | 'not found';
+export type SkillStatus = 'found' | 'indirect' | 'not_found';
 
 export interface SkillCoverage {
     skill_id: number;
@@ -9,7 +9,7 @@ export interface SkillCoverage {
 
 export interface Candidate {
     id: string;
-    diplay_name: string;
+    display_name: string;
     source: 'hh_api'| 'p_local';
     relevance_score: number;
     experience_years: number;

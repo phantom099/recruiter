@@ -7,3 +7,41 @@
 body {
   font-family: sans-serif;
 }
+.skill {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin: 2px;
+  display: inline-block;
+  font-weight: 500;
+}
+
+/* статус found */
+.skill--found {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* статус indirect */
+.skill--indirect {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* статус not_found */
+.skill--not_found {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.skill--active {
+  outline: 2px solid #3b82f6;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.skill--active {
+  outline: 2px solid #3b82f6;
+  transform: scale(1.05);
+  cursor: pointer;
+}
