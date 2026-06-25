@@ -12,7 +12,9 @@ function CandidatesPage() {
     useState<'hh_api' | 'p_local' | 'all'>('all');
   const [sortBy, setSortBy] =
     useState<'relevance_score' | 'found_skills'>('relevance_score');
-  const [selectedCandidates, setSelectedCandidates] = useState<string[]>([]); 
+  const [selectedCandidates, setSelectedCandidates] = useState<string[]>([]);
+  const [vacancy, setVacancy] = useState<any>(null);
+  const [focusedSkills, setFocusedSkills] = useState<string[]>([]); 
 
   const exportSelectedCandidates = () => {
     const selected = candidates.filter(candidate =>
@@ -47,6 +49,7 @@ function CandidatesPage() {
       try {
         const data = await loadCandidates();
         setCandidates(data.candidates);
+        setVacancy(data.vacancy);
       } catch (error) {
         setError((error as Error).message);
       } finally {
@@ -56,6 +59,20 @@ function CandidatesPage() {
 
     fetchData();
   }, []);
+
+  const toggleFocusedSkill = (skillId: string) => {
+    setFocusedSkills(prev => {
+      if (prev.includes(skillId)) {
+        return prev.filter(id => id !== skillId);
+      }
+  
+      if (prev.length >= 2) {
+        return prev;
+      }
+  
+      return [...prev, skillId];
+    });
+  };
 
   if (loading) return <h1>Loading...</h1>;
   if (error) return <h1>Error: {error}</h1>;
@@ -95,38 +112,45 @@ function CandidatesPage() {
   }
 
   return (
-    <div>
-      <button onClick={() => setShowOnlyWithContact(prev => !prev)}>
+    <section className="filters" aria-label="Filters">
+    <div className="filters__group">
+      <button className="filters__toggle" onClick={() => setShowOnlyWithContact(prev => !prev)}>
         Только с контактами
       </button>
 
-      <label>
+    <div className="filters__group">
+      <label className="filters__option">
         <input
           type="radio"
           checked={sourceFilter === 'all'}
           onChange={() => setSourceFilter('all')}
+          name="sourceFilter"
         />
         Все
       </label>
 
-      <label>
+      <label className="filters__option">
         <input
           type="radio"
           checked={sourceFilter === 'hh_api'}
           onChange={() => setSourceFilter('hh_api')}
+          name="sourceFilter"
         />
         HH.ru
       </label>
 
-      <label>
+      <label className="filters__option">
         <input
           type="radio"
           checked={sourceFilter === 'p_local'}
           onChange={() => setSourceFilter('p_local')}
+          name="sourceFilter"
         />
         Локальные
       </label>
+    </div>
 
+    <div className="filters__group">
       <label>
         <input
           type="radio"
@@ -144,21 +168,49 @@ function CandidatesPage() {
         />
         По навыкам
       </label> 
+      </div>
       <button onClick={exportSelectedCandidates}>
         Экспорт JSON
       </button>
 
-      <h1>Кандидаты</h1>
+      {vacancy && (
+  <div>
+    <h2>{vacancy.title}</h2>
 
+    {vacancy.required_skills.map((skill: any) => (
+      <label key={skill.id}>
+        <input
+          type="checkbox"
+          checked={focusedSkills.includes(skill.id)}
+          onChange={() => toggleFocusedSkill(skill.id)}
+        />
+
+        {skill.name}
+
+        {skill.importance === 'required'
+          ? ' (required)'
+          : ' (nice to have)'}
+      </label>
+       ))}
+      </div>
+      )}
+
+      <header className="page__header">
+        <h1>Кандидаты</h1>
+      </header>
+      
       {filteredCandidates.map(candidate => (
         <CandidateCard
           key={candidate.id}
           candidate={candidate}
           selected={selectedCandidates.includes(candidate.id)}
           onToggle={() => toggleCandidate(candidate.id)}
+          focusedSkills={focusedSkills}
         />
       ))}
+      
     </div>
+    </section>
   );
 }
 
