@@ -4,11 +4,19 @@ import SkillBadge from './SkillBadge';
 
 type CandidateCardProps = {
   candidate: Candidate;
+  selected: boolean;
+  onToggle: () => void;
 };
 
-function CandidateCard({ candidate }: CandidateCardProps) {
+function CandidateCard({ candidate, selected, onToggle }: CandidateCardProps) {
   return (
     <Link to={`/candidate/${candidate.id}`} className="card">
+        <input
+        type="checkbox"
+        checked={selected}
+        onChange={onToggle}
+        onClick={(e) => e.stopPropagation()}
+        />
       <h2>{candidate.display_name}</h2>
       <p>{candidate.current_title}</p>
 

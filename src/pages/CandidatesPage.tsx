@@ -7,13 +7,40 @@ function CandidatesPage() {
   const [candidates, setCandidates] = useState<Candidate[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
   const [showOnlyWithContact, setShowOnlyWithContact] = useState(false);
   const [sourceFilter, setSourceFilter] =
     useState<'hh_api' | 'p_local' | 'all'>('all');
-
   const [sortBy, setSortBy] =
     useState<'relevance_score' | 'found_skills'>('relevance_score');
+  const [selectedCandidates, setSelectedCandidates] = useState<string[]>([]); 
+
+  const exportSelectedCandidates = () => {
+    const selected = candidates.filter(candidate =>
+      selectedCandidates.includes(candidate.id)
+    );
+  
+    const blob = new Blob(
+      [JSON.stringify(selected, null, 2)],
+      { type: 'application/json' }
+    );
+  
+    const url = URL.createObjectURL(blob);
+  
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'selected-candidates.json';
+  
+    a.click();
+  
+    URL.revokeObjectURL(url);  };
+
+  const toggleCandidate = (id: string) => {
+    setSelectedCandidates(prev =>
+      prev.includes(id)
+        ? prev.filter(candidateId => candidateId !== id)
+        : [...prev, id]
+    );
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -116,7 +143,10 @@ function CandidatesPage() {
           onChange={() => setSortBy('found_skills')}
         />
         По навыкам
-      </label>
+      </label> 
+      <button onClick={exportSelectedCandidates}>
+        Экспорт JSON
+      </button>
 
       <h1>Кандидаты</h1>
 
@@ -124,6 +154,8 @@ function CandidatesPage() {
         <CandidateCard
           key={candidate.id}
           candidate={candidate}
+          selected={selectedCandidates.includes(candidate.id)}
+          onToggle={() => toggleCandidate(candidate.id)}
         />
       ))}
     </div>
