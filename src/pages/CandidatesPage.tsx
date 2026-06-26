@@ -75,9 +75,23 @@ function CandidatesPage() {
   };
 
   if (loading) return <h1>Loading...</h1>;
-  if (error) return <h1>Error: {error}</h1>;
+  if (error) return <h1>Error: {error}</h1>; 
 
-  let filteredCandidates = [...candidates];
+  console.log('Vacancy skills:', vacancy?.required_skills);
+  console.log('Candidate skills:', candidates[0]?.skills_coverage);
+  console.log('Focused:', focusedSkills);
+
+  let filteredCandidates = [...candidates]; 
+
+  if (focusedSkills.length > 0) {
+    filteredCandidates = filteredCandidates.filter(candidate =>
+      focusedSkills.every(skillId =>
+        candidate.skills_coverage.some(
+          skill => String(skill.skill_id) === skillId
+        )
+      )
+    );
+  }
 
   if (sourceFilter !== 'all') {
     filteredCandidates = filteredCandidates.filter(
@@ -108,6 +122,24 @@ function CandidatesPage() {
       ).length;
 
       return bFound - aFound;
+    });
+  }
+
+  if (focusedSkills.length > 0) {
+    filteredCandidates = filteredCandidates.filter(candidate => {
+      const result = focusedSkills.every(skillId =>
+        candidate.skills_coverage.some(
+          skill => String(skill.skill_id) === skillId
+        )
+      );
+  
+      console.log(
+        candidate.display_name,
+        result,
+        candidate.skills_coverage.map(s => s.skill_id)
+      );
+  
+      return result;
     });
   }
 
